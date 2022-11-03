@@ -49,3 +49,4 @@ cmake \
     -DDAILY_BUILD="${DAILY_BUILD}"
 cmake --build build --parallel "${NJOBS}"
 cmake --install build
+
