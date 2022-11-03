@@ -26,10 +26,10 @@ else
     export DOWNLOAD_CMD="curl --retry 10 -sS -kLOC -"
 fi
 
-brew update
-brew upgrade
-brew link --overwrite numpy
-brew install \
+arch -arm64 brew update
+arch -arm64 brew upgrade
+arch -arm64 brew link --overwrite numpy
+arch -arm64 brew install \
     ccache \
     cmake \
     ffmpeg \
@@ -38,11 +38,11 @@ brew install \
     python \
     qt@5 \
     vlc
-brew link --overwrite python
-brew link --force qt@5
+arch -arm64 brew link --overwrite python
+arch -arm64 brew link --force qt@5
 
 if [ "${UPLOAD}" != 1 ]; then
-    brew install \
+    arch -arm64 brew install \
         gstreamer \
         gst-plugins-base \
         gst-plugins-good \
@@ -51,4 +51,4 @@ if [ "${UPLOAD}" != 1 ]; then
         libuvc
 fi
 
-brew link python
+arch -arm64 brew link python
