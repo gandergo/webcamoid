@@ -12,37 +12,37 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install dependencies
       run: |
-        chmod +x ports/ci/mac/install_deps.sh
-        ./ports/ci/mac/install_deps.sh
+        chmod +x ports/ci/mac-arm/install_deps.sh
+        ./ports/ci/mac-arm/install_deps.sh
     - name: Release Build
       if: ${{ startsWith(github.ref, 'refs/tags/') }}
       run: |
-        chmod +x ports/ci/mac/build.sh
-        ./ports/ci/mac/build.sh
+        chmod +x ports/ci/mac-arm/build.sh
+        ./ports/ci/mac-arm/build.sh
     - name: Release Deploy
       if: ${{ startsWith(github.ref, 'refs/tags/') }}
       run: |
-        chmod +x ports/ci/mac/deploy.sh
-        ./ports/ci/mac/deploy.sh
+        chmod +x ports/ci/mac-arm/deploy.sh
+        ./ports/ci/mac-arm/deploy.sh
     - name: Daily Build
       if: ${{ !startsWith(github.ref, 'refs/tags/') }}
       env:
         DAILY_BUILD: 1
       run: |
-        chmod +x ports/ci/mac/build.sh
-        ./ports/ci/mac/build.sh
+        chmod +x ports/ci/mac-arm/build.sh
+        ./ports/ci/mac-arm/build.sh
     - name: Daily Deploy
       if: ${{ !startsWith(github.ref, 'refs/tags/') }}
       env:
         DAILY_BUILD: 1
       run: |
-        chmod +x ports/ci/mac/deploy.sh
-        ./ports/ci/mac/deploy.sh
+        chmod +x ports/ci/mac-arm/deploy.sh
+        ./ports/ci/mac-arm/deploy.sh
     - name: Release Upload
       uses: softprops/action-gh-release@v1
       if: ${{ startsWith(github.ref, 'refs/tags/') }}
       with:
-        files: webcamoid-packages/mac/*
+        files: webcamoid-packages/mac-arm/*
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Daily Build Upload
@@ -51,7 +51,7 @@ jobs:
       with:
         body: "${{ github.event.head_commit.message }} (commit: ${{ github.sha }})<hr>**Note**: Ignore the commit information of the tag, the files in the release keep updating with every new build, these packages were built from ${{ github.sha }} commit."
         prerelease: true
-        files: webcamoid-packages/mac/*
+        files: webcamoid-packages/mac-arm/*
         name: Daily Build
         tag_name: daily-build
       env:
