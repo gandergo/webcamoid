@@ -21,28 +21,28 @@ build_mac_arm_task:
     - ./ports/ci/mac-arm/deploy.sh
 
 
-build_task:
-  env:
-    COMPILER: clang
-    NJOBS: 4
+# build_task:
+#   env:
+#     COMPILER: clang
+#     NJOBS: 4
 
-  freebsd_instance:
-    matrix:
-      image_family: freebsd-13-0-snap
-      image_family: freebsd-12-2
-    cpu: 2
-    memory: 4G
+#   freebsd_instance:
+#     matrix:
+#       image_family: freebsd-13-0-snap
+#       image_family: freebsd-12-2
+#     cpu: 2
+#     memory: 4G
 
-  timeout_in: 60m
+#   timeout_in: 60m
 
-  install_script:
-    - chmod +x ports/ci/cirrus/install_deps.sh
-    - ./ports/ci/cirrus/install_deps.sh
+#   install_script:
+#     - chmod +x ports/ci/cirrus/install_deps.sh
+#     - ./ports/ci/cirrus/install_deps.sh
 
-  script:
-    - chmod +x ports/ci/cirrus/build.sh
-    - ./ports/ci/cirrus/build.sh
+#   script:
+#     - chmod +x ports/ci/cirrus/build.sh
+#     - ./ports/ci/cirrus/build.sh
 
-  deploy_script:
-    - chmod +x ports/ci/cirrus/deploy.sh
-    - ./ports/ci/cirrus/deploy.sh
+#   deploy_script:
+#     - chmod +x ports/ci/cirrus/deploy.sh
+#     - ./ports/ci/cirrus/deploy.sh

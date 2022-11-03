@@ -40,6 +40,8 @@ brew install \
     vlc
 brew link --overwrite python
 brew link --force qt@5
+PATH="$(brew --prefix qt5)/bin:$PATH"
+# https://github.com/leela-zero/leela-zero/issues/2177
 
 if [ "${UPLOAD}" != 1 ]; then
     brew install \
