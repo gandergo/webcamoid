@@ -1,3 +1,26 @@
+build_mac_arm_task:
+  env:
+#     COMPILER: clang
+    NJOBS: 4
+
+  macos_instance:
+    image: ghcr.io/cirruslabs/macos-ventura-base:latest
+
+  timeout_in: 60m
+
+  install_script:
+    - chmod +x ports/ci/mac-arm/install_deps.sh
+    - ./ports/ci/mac-arm/install_deps.sh
+
+  script:
+    - chmod +x ports/ci/mac-arm/build.sh
+    - ./ports/ci/mac-arm/build.sh
+
+  deploy_script:
+    - chmod +x ports/ci/mac-arm/deploy.sh
+    - ./ports/ci/mac-arm/deploy.sh
+
+
 build_task:
   env:
     COMPILER: clang
