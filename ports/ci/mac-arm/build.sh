@@ -25,13 +25,15 @@ if [ -z "${DISABLE_CCACHE}" ]; then
     EXTRA_PARAMS="-DCMAKE_C_COMPILER_LAUNCHER=ccache -DCMAKE_CXX_COMPILER_LAUNCHER=ccache -DCMAKE_OBJCXX_COMPILER_LAUNCHER=ccache"
 fi
 
-EXTRA_PARAMS="${EXTRA_PARAMS} -DNOGSTREAMER=ON -DNOJACK=ON -DNOLIBAVDEVICE=ON -DNOLIBUVC=ON -DNOPULSEAUDIO=ON"
+EXTRA_PARAMS="${EXTRA_PARAMS} -DNOGSTREAMER=ON -DNOJACK=ON -DNOLIBAVDEVICE=ON -DNOLIBUVC=ON -DNOPULSEAUDIO=ON -DCMAKE_OSX_ARCHITECTURES=arm64"
 
 export PATH="/usr/local/opt/qt@5/bin:$PATH"
 export LDFLAGS="$LDFLAGS -L/usr/local/opt/qt@5/lib"
 export CPPFLAGS="$CPPFLAGS -I/usr/local/opt/qt@5/include"
 export PKG_CONFIG_PATH="/usr/local/opt/qt@5/lib/pkgconfig:$PKG_CONFIG_PATH"
 export MACOSX_DEPLOYMENT_TARGET="10.14"
+export CFLAGS="-arch arm64"
+export CXXFLAGS="-arch x86_64 -arch arm64 -mmacosx-version-min=11.0 -std=c++11"
 INSTALL_PREFIX=${PWD}/webcamoid-data
 
 mkdir build
