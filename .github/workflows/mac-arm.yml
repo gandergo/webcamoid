@@ -1,4 +1,4 @@
-name: Mac
+name: Mac-arm
 
 on: [push, pull_request]
 
