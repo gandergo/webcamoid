@@ -21,7 +21,7 @@ build_mac_arm_task:
     - ./ports/ci/mac-arm/deploy.sh
   
   binaries_artifacts:
-    path: "webcamoid-data/*"
+    path: "/webcamoid-packages/mac/*"
 
 # build_task:
 #   env:
