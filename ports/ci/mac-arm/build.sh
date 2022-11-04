@@ -27,13 +27,11 @@ fi
 
 EXTRA_PARAMS="${EXTRA_PARAMS} -DNOGSTREAMER=ON -DNOJACK=ON -DNOLIBAVDEVICE=ON -DNOLIBUVC=ON -DNOPULSEAUDIO=ON -DCMAKE_OSX_ARCHITECTURES=arm64"
 
-export PATH="/opt/homebrew/opt/qt@5/bin:/usr/local/opt/qt@5/bin:$PATH"
-export LDFLAGS="$LDFLAGS -L/usr/local/opt/qt@5/lib -L/opt/homebrew/opt/qt@5/lib"
-export CPPFLAGS="$CPPFLAGS -I/usr/local/opt/qt@5/include -I/opt/homebrew/opt/qt@5/include"
-export PKG_CONFIG_PATH="/opt/homebrew/opt/qt@5/lib/pkgconfig:/usr/local/opt/qt@5/lib/pkgconfig:$PKG_CONFIG_PATH"
+export PATH="/usr/local/opt/qt@5/bin:$PATH"
+export LDFLAGS="$LDFLAGS -L/usr/local/opt/qt@5/lib"
+export CPPFLAGS="$CPPFLAGS -I/usr/local/opt/qt@5/include"
+export PKG_CONFIG_PATH="/usr/local/opt/qt@5/lib/pkgconfig:$PKG_CONFIG_PATH"
 export MACOSX_DEPLOYMENT_TARGET="10.14"
-export CFLAGS="-arch arm64 -target arm64-apple-macos11"
-export CXXFLAGS="-arch arm64 -mmacosx-version-min=11.0 -std=c++11"
 INSTALL_PREFIX=${PWD}/webcamoid-data
 
 mkdir build
