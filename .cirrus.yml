@@ -19,7 +19,9 @@ build_mac_arm_task:
   deploy_script:
     - chmod +x ports/ci/mac-arm/deploy.sh
     - ./ports/ci/mac-arm/deploy.sh
-
+  
+  binaries_artifacts:
+    path: webcamoid-*-mac-*-arm64.*
 
 # build_task:
 #   env:
