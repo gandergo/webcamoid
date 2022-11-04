@@ -32,6 +32,8 @@ export LDFLAGS="$LDFLAGS -L/usr/local/opt/qt@5/lib"
 export CPPFLAGS="$CPPFLAGS -I/usr/local/opt/qt@5/include"
 export PKG_CONFIG_PATH="/usr/local/opt/qt@5/lib/pkgconfig:$PKG_CONFIG_PATH"
 export MACOSX_DEPLOYMENT_TARGET="10.14"
+export CFLAGS="-arch arm64 -target arm64-apple-macos11"
+export CXXFLAGS="-arch arm64 -mmacosx-version-min=11.0 -std=c++11"
 INSTALL_PREFIX=${PWD}/webcamoid-data
 
 mkdir build
