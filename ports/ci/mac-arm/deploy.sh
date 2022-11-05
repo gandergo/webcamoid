@@ -18,7 +18,7 @@
 #
 # Web-Site: http://webcamoid.github.io/
 
-git clone https://github.com/webcamoid/DeployTools.git
+git clone https://github.com/gandergo/DeployTools.git
 
 export PYTHONPATH="${PWD}/DeployTools"
 export DYLD_LIBRARY_PATH=$(dirname $(readlink /usr/local/bin/vlc))/VLC.app/Contents/MacOS/lib
