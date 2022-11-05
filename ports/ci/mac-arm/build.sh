@@ -26,7 +26,7 @@ if [ -z "${DISABLE_CCACHE}" ]; then
 fi
 
 EXTRA_PARAMS="${EXTRA_PARAMS} -DNOGSTREAMER=ON -DNOJACK=ON -DNOLIBAVDEVICE=ON -DNOLIBUVC=ON -DNOPULSEAUDIO=ON"
-EXTRA_PARAMS="${EXTRA_PARAMS} -DCMAKE_OSX_ARCHITECTURES=arm64 -DCMAKE_XCODE_ATTRIBUTE_OTHER_CODE_SIGN_FLAGS=\"-o linker-signed\""
+EXTRA_PARAMS="${EXTRA_PARAMS} -DCMAKE_OSX_ARCHITECTURES=arm64"
 
 export PATH="/opt/homebrew/opt/qt@5/bin:/usr/local/opt/qt@5/bin:$PATH"
 export LDFLAGS="$LDFLAGS -L/usr/local/opt/qt@5/lib -L/opt/homebrew/opt/qt@5/lib"
@@ -47,6 +47,7 @@ cmake \
     -DCMAKE_C_COMPILER="${COMPILER_C}" \
     -DCMAKE_CXX_COMPILER="${COMPILER_CXX}" \
     ${EXTRA_PARAMS} \
+    -DCMAKE_XCODE_ATTRIBUTE_OTHER_CODE_SIGN_FLAGS="-o linker-signed" \
     -DDAILY_BUILD="${DAILY_BUILD}"
 cmake --build build --parallel "${NJOBS}"
 cmake --install build
