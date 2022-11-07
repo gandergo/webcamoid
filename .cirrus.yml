@@ -2,6 +2,8 @@ build_mac_arm_task:
   env:
 #     COMPILER: clang
     NJOBS: 4
+    SIGN_KEY: ENCRYPTED[6e0e770a3b98dbe3a70bf0206a4735f86ea682005868ff785f5a507f12ffe74165057c089d1e49b32b0a1c613e490e01]
+    KEY_PASS: ENCRYPTED[fec9deb715cea8d2ab44a3d3a657096a563d1c342425875cfb046d92818f27e859bc4deb5289cf3597beaf2ac5807a67]
 
   macos_instance:
     image: ghcr.io/cirruslabs/macos-ventura-base:latest
