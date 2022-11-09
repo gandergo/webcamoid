@@ -46,6 +46,7 @@ if [ "${UPLOAD}" != 1 ]; then
         gstreamer \
         gst-plugins-base \
         gst-plugins-good \
+        gst-plugins-bad \
         pulseaudio \
         jack \
         libuvc
